@@ -1,3 +1,5 @@
+/* Styling mobile first */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,7 +27,8 @@ h1 {
     color: #4C0D0D;
     stroke: 0.5px solid #4C0D0D;
     text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
-    transform: rotate(-13.02deg);
+    /* *Rotating the H1 */
+    transform: rotate(-13.02deg); 
 }
 
 p {
@@ -35,6 +38,7 @@ p {
     color: #F0F0F0;
 }
 
+/* Grid */
 main {
     display: grid;
     height: 100vh;
@@ -47,6 +51,7 @@ main {
     padding: 24px;
 }
 
+/* Snowfall element */
 span {
     position: absolute;
     width: 0.625rem;
@@ -54,32 +59,39 @@ span {
     background: #F0F0F0;
     border-radius: 50%;
     filter: drop-shadow(0 0 0.625rem white);
+    /* Animation snowFall is set with keyframes below */
     animation: snowFall 10s infinite;
     top: -40px;
 }
 
+/* Making the snow fall from above the top to bottom 
+and decreesing the opacity to 0 in the end */
 @keyframes snowFall {
     from {top: -40px;}
     to {top: 100vh; opacity: 0;}
 }
 
+/* The snowflake icon will scale up on hover*/
 .snowflake {
     width: 2rem;
     transition: transform .2s;
 }
 
-.snowflake:hover, .snowflake:focus {
+.snowflake:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
+
 
 .heading {
     grid-area: heading;
     justify-self: center;
     align-self: center;
+    /* Animation scaleEffect is set with keyframes below */
     animation: scaleEffect 3s ease-out;
 }
 
+/* The heading will scale up to it's default size */
 @keyframes scaleEffect {
     from {transform: scale(0.2);}
     to {transform: scale(1);}
@@ -90,9 +102,11 @@ span {
     width: 8.75rem;
     justify-self: end;
     align-self: start;
+    /* Animation jiggle is set with keyframes below */
     animation: jiggle 6s ease-in-out infinite;
 }
 
+/* The reindeer will jiggle back and forth */
 @keyframes jiggle {
     0% {transform: rotate(0deg);}
     25% {transform: rotate(-10deg);}
@@ -101,10 +115,12 @@ span {
     100% {transform: rotate(0deg);}
 }
 
+/* Animation noseColor is set with keyframes below */
 .reindeer:hover .reindeer-nose {
     animation: noseColor 3s ease-out;
 }
 
+/* When hovering the reindeer it's nose will turn red */
 @keyframes noseColor {
     from {fill:#AD5A4C}
     to {fill: crimson;}
@@ -129,6 +145,8 @@ span {
 .numbers {
     font-size: 2rem;
 }
+
+/* Styling for bigger screens */
 
 @media only screen and (min-width: 500px) {
     html {
@@ -157,7 +175,6 @@ span {
     body {
         width: 100vw;
         background-position: 100% 80%;
-        /* margin-bottom: -100px; */
     }
 
     main {
@@ -176,7 +193,6 @@ span {
     .reindeer {
         justify-self: start;
         align-self: end;
-
     }
 
     .time-box{
